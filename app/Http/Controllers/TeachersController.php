@@ -31,4 +31,26 @@ class TeachersController extends Controller
 
 
     }
+        public function deletep($id){
+        DB::delete('delete from groupe where g_id=?',[$id]);
+        return redirect('Teacher');
+    }
+        public function updateProf(Request $request,$id) {
+        $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+        $email = $request->input('email');
+
+        if ($firstname!==null){
+            DB::update('update teachers set firstname = ? where m_id = ?',[$firstname,$id]);
+        }
+        if ($lastname !==null){
+            DB::update('update teachers set lastname = ? where m_id = ?',[$lastname,$id]);
+        }
+        if ($email !==null){
+            DB::update('update teachers set email = ? where m_id = ?',[$email,$id]);
+        }
+
+
+        return redirect('Teacher');
+    }
 }
