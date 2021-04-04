@@ -32,25 +32,28 @@ class TeachersController extends Controller
 
     }
         public function deletep($id){
-        DB::delete('delete from groupe where g_id=?',[$id]);
+        DB::delete('delete from groupe where t_id=?',[$id]);
         return redirect('Teacher');
     }
-        public function updateProf(Request $request,$id) {
+        public function updateProf(Request $request) {
         $firstname = $request->input('firstname');
         $lastname = $request->input('lastname');
         $email = $request->input('email');
 
-        if ($firstname!==null){
-            DB::update('update teachers set firstname = ? where m_id = ?',[$firstname,$id]);
-        }
-        if ($lastname !==null){
-            DB::update('update teachers set lastname = ? where m_id = ?',[$lastname,$id]);
-        }
-        if ($email !==null){
-            DB::update('update teachers set email = ? where m_id = ?',[$email,$id]);
-        }
+      DB::update('update teachers set firstname = ? where t_id = ?',[$firstname,$id]);
+      DB::update('update teachers set lastname = ? where t_id = ?',[$lastname,$id]);
+      DB::update('update teachers set email = ? where t_id = ?',[$email,$id]);
 
 
-        return redirect('Teacher');
+
+           return back();
     }
+    
+            public function updatep($id){
+        $teachers = DB::select('select * from teachers where t_id=?',[$id]);
+        
+        return view('teacherupdate','teachers'=>$teachers);
+    }
+    
+    
 }
