@@ -26,7 +26,9 @@
                     <td>{{$teacher->firstname}}</td>
                     <td>{{$teacher->lastname}}</td>
                     <td>{{$teacher->email}}</td>
-
+                    <td><a href="deletep/{{$teache->t_id}}"><button>Delete</button></a>
+                <a href="updateProf/{{$teacher->t_id}}"><button>update</button></a>
+            </td>
                 </tr>
                 @endforeach
 
