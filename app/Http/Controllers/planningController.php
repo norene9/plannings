@@ -156,7 +156,89 @@ class planningController extends Controller
             }
         }
 
+            public function updateSeance(Request $request,$id) {
+            $data = $request->input();
+        if ($data['type']=='cours'){   
+      
+         $module = $data['module'];
+         $teacher = $data['prof'];
+         $salle = $data['salle'];
+         $planning_ref_sid = $data['planning'];
+         $promo_ref_scid = $data['promo'];
+         $time = $data['time'];
+         $group = $data['group'];
+         $day_ref_scid = $data['day'];
+       
 
+        if ($module!==null){
+            DB::update('update seance_cours set module = ? where m_id = ?',[$module,$id]);
+        }
+          if ($teacher!==null){
+            DB::update('update seance_cours set teacher = ? where m_id = ?',[$teacher,$id]);
+        }
+          if ($salle!==null){
+            DB::update('update seance_cours set salle = ? where m_id = ?',[$salle,$id]);
+        }
+          if ($planning_ref_sid!==null){
+            DB::update('update seance_cours set planning_ref_sid = ? where m_id = ?',[$planning_ref_sid,$id]);
+        }
+          if ($time!==null){
+            DB::update('update seance_cours set time = ? where m_id = ?',[$time,$id]);
+        }
+          if ($group!==null){
+            DB::update('update seance_cours set group = ? where m_id = ?',[$group,$id]);
+        }
+         if ($day_ref_scid!==null){
+            DB::update('update seance_cours set day_ref_scid = ? where m_id = ?',[$day_ref_scid,$id]);
+        }
+
+        return redirect('cplanning'); }
+
+  else if($data['type']=='td'){ 
+
+         $module = $data['module'];
+         $teacher = $data['prof'];
+         $salle = $data['salle'];
+         $planning_ref_sid = $data['planning'];
+         $promo_ref_scid = $data['promo'];
+         $time = $data['time'];
+         $group = $data['group'];
+         
+       
+
+        if ($module!==null){
+            DB::update('update seance_td set module = ? where m_id = ?',[$module,$id]);
+        }
+          if ($teacher!==null){
+            DB::update('update seance_td set teacher = ? where m_id = ?',[$teacher,$id]);
+        }
+          if ($salle!==null){
+            DB::update('update seance_td set salle = ? where m_id = ?',[$salle,$id]);
+        }
+          if ($planning_ref_sid!==null){
+            DB::update('update seance_td set planning_ref_sid = ? where m_id = ?',[$planning_ref_sid,$id]);
+        }
+          if ($time!==null){
+            DB::update('update seance_td set time = ? where m_id = ?',[$time,$id]);
+        }
+          if ($group!==null){
+            DB::update('update seance_td set group = ? where m_id = ?',[$group,$id]);
+        }
+       
+
+        return redirect('cplanning');
+
+  }
+
+
+
+    }
+    public function deleteseance($id){
+        DB::delete('delete from cplanning where m_id = ?',[$id]);
+        $module=DB::select('select * from cplanning');
+        return redirect('cplanning');
+
+    }
 
 
 }
