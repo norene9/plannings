@@ -78,5 +78,21 @@ class groupeController extends Controller
         $promos = DB::select('select * from promotion');
         return view('groups',['groups'=>$groups,'promos'=>$promos]);
     }
+      public function updateGroupe(Request $request,$id) {
+        $number = $request->input('number');
+        $promo_ref_gid = $request->input('promo_ref_gid');
+        
+
+        if ($number!==null){
+            DB::update('update groupe set number = ? where m_id = ?',[$number,$id]);
+        }
+        if ($promo_ref_gid !==null){
+            DB::update('update groupe set promo_ref_gid = ? where m_id = ?',[$promo_ref_gid,$id]);
+        }
+        
+
+
+        return redirect('Teacher');
+    }
 
 }
