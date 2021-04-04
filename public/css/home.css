@@ -1,0 +1,91 @@
+*{
+
+    box-sizing: border-box;
+    font-family: 'Microsoft JhengHei UI Light';
+}
+.bodyh{
+
+    justify-content: center;
+    align-items:center;
+
+}
+.container{
+    position: relative;
+    margin-top: 300px;
+    width: 1150px;
+    padding:20px;
+    display:flex;
+    justify-content: center;
+    align-items:center ;
+    flex-wrap: wrap;
+}
+.container .card{
+    position: relative;
+    width:300px;
+    height:520px;
+    background:#ffffff;
+    margin:20px;
+    border-raduis:20px;
+    overflow:hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    transition:0.5s;
+}
+.container .card .circle{
+   position:relative;
+    height:100%;
+    width:100%;
+    background:#000;
+    clip-path: circle(180px at center 0);
+    text-align:center;
+}
+.container .card .circle h2{
+    color:#fff;
+    font-size:3.5em;
+    padding:30px 0;
+
+}
+.container .card .content{
+    position: absolute;
+    bottom: 70px;
+    text-align: center;
+padding:20px;
+}
+
+.container .card .content a{
+
+    display: block;
+    padding:10px;
+    text-align: center;
+    background:#000 ;
+    color:#fff;
+    border-raduis:40px;
+    margin-bottom:0px;
+
+
+}
+.container .card:nth-child(1) .circle,
+.container .card:nth-child(1) .content a
+ {
+    background:#bb02ff;
+ }
+.container .card:nth-child(2) .circle,
+.container .card:nth-child(2) .content a
+{
+    background:#da2268;
+}
+.container .card:nth-child(3) .circle,
+.container .card:nth-child(3) .content a
+{
+    background:#bb0;
+}
+.container:hover .card{
+    filter:blur(20px);
+    transform:scale(0.9);
+    opacity:0.5;
+}
+.container .card:hover{
+    filter:blur(0px);
+    transform:scale(1.1);
+    opacity:1;
+}
+
