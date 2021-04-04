@@ -73,7 +73,10 @@ Route::get('deletep/{id}',[\App\Http\Controllers\teachersController::class,'dele
 Route::get('updatep/{id}',[\App\Http\Controllers\teachersController::class,'updateProf']);
 //update groupe
 Route::get('updateg/{id}',[\App\Http\Controllers\teachersController::class,'updateGroupe']);
-//supprimer et update seance
+//supprimer seance
+Route::get('deletes/{id}',[\App\Http\Controllers\planningController::class,'deleteseance']);
+//update seance
+Route::get('updates/{id}',[\App\Http\Controllers\planningController::class,'updateSeance']);
 //table examnen
 //update module
 Route::get('updatem/{id}',[\App\Http\Controllers\teachersController::class,'updateModule']);
