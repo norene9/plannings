@@ -10,8 +10,9 @@
 <a class="material-icons floating-btn" onclick="openForm()">add</a>
 
 
-<h2>Planning S1</h2>
-<table class="table contents" id="wrapper">
+<button type="button" class="btn btn-primary" onclick="openTable1()">Planning S1</button>
+<button type="button" class="btn cancel" onclick="closeTable1()">Close</button>
+<table class="table contents" id="wrapper1">
     <thead>
 
 
@@ -54,8 +55,9 @@
     </tbody>
 
 </table>
-<h2>Planning S2</h2>
-<table class="table contents" id="wrapper">
+<button type="button" class="btn btn-primary" onclick="openTable2()">Planning S2</button>
+<button type="button" class="btn cancel" onclick="closeTable2()">Close</button>
+<table class="table contents" id="wrapper2">
     <thead>
 
 
@@ -98,8 +100,9 @@
     </tbody>
 
 </table>
-<h2>Planning exam</h2>
-<table class="table contents" id="wrapper">
+<button type="button" class="btn btn-primary" onclick="openTable3()">Planning exam</button>
+<button type="button" class="btn cancel" onclick="closeTable3()">Close</button>
+<table class="table contents" id="wrapper3">
     <thead>
 
 
@@ -235,6 +238,25 @@
     function closeForm() {
         document.getElementById("myForm").style.display = "none";
     }
+     function openTable1() {
+        document.getElementById("wrapper1").style.display = "block";
+    }
+      function openTable2() {
+        document.getElementById("wrapper2").style.display = "block";
+    }
+        function openTable3() {
+        document.getElementById("wrapper3").style.display = "block";
+    }
+      function closeTable1() {
+        document.getElementById("wrapper1").style.display = "none";
+    }
+        function closeTable2() {
+        document.getElementById("wrapper2").style.display = "none";
+    }
+        function closeTable3() {
+        document.getElementById("wrapper3").style.display = "none";
+    }
+    
 </script>
 </body>
 
