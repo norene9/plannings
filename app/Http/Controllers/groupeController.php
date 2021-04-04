@@ -22,17 +22,22 @@ class groupeController extends Controller
 
 
             $groupe->save();
-            return redirect('groups');
+            return back();
         }
         catch(Exception $e){
-            return redirect('groups');
+            return back();
         }
 
 
     }
+    public function updateg($id){
+        $groups = DB::select('select * from groupe where g_id=?',[$id]);
+        $promos = DB::select('select * from promotion');
+        return view('groupeupdate',['groups'=>$groups,'promos'=>$promos]);
+    }
     public function deleteg($id){
         DB::delete('delete from groupe where g_id=?',[$id]);
-        return redirect('groups');
+        return back();
     }
     function groupe1cpi()
     {$groups = DB::select('select * from groupe where promo_ref_gid=1');
@@ -78,21 +83,21 @@ class groupeController extends Controller
         $promos = DB::select('select * from promotion');
         return view('groups',['groups'=>$groups,'promos'=>$promos]);
     }
-      public function updateGroupe(Request $request,$id) {
-        $number = $request->input('number');
-        $promo_ref_gid = $request->input('promo_ref_gid');
-        
-
-        if ($number!==null){
-            DB::update('update groupe set number = ? where m_id = ?',[$number,$id]);
-        }
-        if ($promo_ref_gid !==null){
-            DB::update('update groupe set promo_ref_gid = ? where m_id = ?',[$promo_ref_gid,$id]);
-        }
-        
+      public function updateGroupe(Request $request) {
+        $number = $request->input('group');
+        $promo_ref_gid = $request->input('promo');
+    $id=$request->input('id');
 
 
-        return redirect('Teacher');
+            DB::update('update groupe set number = ? where g_id = ?',[$number,$id]);
+
+
+            DB::update('update groupe set promo_ref_gid = ? where g_id = ?',[$promo_ref_gid,$id]);
+
+
+
+
+        return back();
     }
 
 }
