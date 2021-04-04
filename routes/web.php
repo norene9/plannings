@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 //afficher la liste des promo pour l'affichage des plan
-Route::get('/cplanning', function () {
+Route::get('cplanning', function () {
     return view('cplanning');
 });
 //afficher la liste des promo pour l'affichage des groupe
@@ -56,6 +56,8 @@ Route::get('teacher',[\App\Http\Controllers\TeachersController::class,'show']);
 
 //ajoute groupes
 Route::post('ajouterg',[\App\Http\Controllers\groupeController::class,'ajouterg']);
+Route::get('updateg/{id}',[\App\Http\Controllers\groupeController::class,'updateg']);
+Route::post('updateg/updateGroupe',[\App\Http\Controllers\groupeController::class,'updateGroupe']);
 //affichage des groupes pour chaque promo
 Route::get('1cpig',[\App\Http\Controllers\groupeController::class,'groupe1cpi']);
 Route::get('2cpig',[\App\Http\Controllers\groupeController::class,'groupe2cpi']);
@@ -71,8 +73,7 @@ Route::get('deleteg/{id}',[\App\Http\Controllers\groupeController::class,'delete
 Route::get('deletep/{id}',[\App\Http\Controllers\teachersController::class,'deletep']);
 //update prof
 Route::get('updatep/{id}',[\App\Http\Controllers\teachersController::class,'updateProf']);
-//update groupe
-Route::get('updateg/{id}',[\App\Http\Controllers\teachersController::class,'updateGroupe']);
+
 //supprimer seance
 Route::get('deletes/{id}',[\App\Http\Controllers\planningController::class,'deleteseance']);
 //update seance
