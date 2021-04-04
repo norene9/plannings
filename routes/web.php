@@ -56,6 +56,7 @@ Route::get('teacher',[\App\Http\Controllers\TeachersController::class,'show']);
 
 //ajoute groupes
 Route::post('ajouterg',[\App\Http\Controllers\groupeController::class,'ajouterg']);
+//update group
 Route::get('updateg/{id}',[\App\Http\Controllers\groupeController::class,'updateg']);
 Route::post('updateg/updateGroupe',[\App\Http\Controllers\groupeController::class,'updateGroupe']);
 //affichage des groupes pour chaque promo
