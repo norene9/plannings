@@ -67,8 +67,14 @@ Route::get('3csisig',[\App\Http\Controllers\groupeController::class,'groupe3csis
 //supprimer groupes
 Route::get('deleteg/{id}',[\App\Http\Controllers\groupeController::class,'deleteg']);
 
-//-> supprimer et update prof
+// supprimer prof
+Route::get('deletep/{id}',[\App\Http\Controllers\teachersController::class,'deletep']);
+//update prof
+Route::get('updatep/{id}',[\App\Http\Controllers\teachersController::class,'updateProf']);
 //update groupe
+Route::get('updateg/{id}',[\App\Http\Controllers\teachersController::class,'updateGroupe']);
 //supprimer et update seance
 //table examnen
 //update module
+Route::get('updatem/{id}',[\App\Http\Controllers\teachersController::class,'updateModule']);
+
