@@ -27,8 +27,7 @@
 <div class="img-container">
     <div class="inner-containner">
         <h1>ESI Planning</h1>
-        <h2>something something</h2>
-        <a class="btn" href="#">Click</a>
+        <a class="btn" href="about">About</a>
 
     </div>
 </div>
